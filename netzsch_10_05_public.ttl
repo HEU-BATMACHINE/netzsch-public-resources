@@ -1,0 +1,206 @@
+@prefix : <https://w3id.org/netzsch/public/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix emmo: <https://w3id.org/emmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/netzsch/public/ontology> a owl:Ontology ;
+    dcterms:contributor "SINTEF"@en,
+        "SINTEF Industry"@en ;
+    dcterms:creator "Sridevi Krishnamurthi, Simon Clark"@en ;
+    dcterms:title "Slurry mixing-NFT domain ontology"@en ;
+    owl:imports <https://w3id.org/emmo/disciplines/prefixedunits>,
+        <https://w3id.org/emmo/domain/battery/battery-inferred> ;
+    owl:versionInfo "0.1.0"@en .
+
+:EMMO_1bb9043d_f98b_5ce3_9f6b_e02511db3380 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:MetrePerSecond ],
+        emmo:EMMO_81369540_1b0e_471b_9bae_6801af22800e ;
+    skos:prefLabel "MillTipSpeed"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill tip speed [m/s]"@en .
+
+:EMMO_207741e1_a2af_589d_8c6d_db50eeadfc5a a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:NewtonMetre ],
+        emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+    skos:prefLabel "PumpTorque"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: torque [Nm]"@en .
+
+:EMMO_27b84418_f10d_53a6_9a26_35aa5607154f a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:DegreeCelsius ],
+        emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ;
+    skos:prefLabel "MIllTempProdOut"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current prodcut temperature mill outlet [°C]"@en .
+
+:EMMO_2a4f7b5a_435b_51ee_bfb6_3b1008fa5905 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:LitrePerHour ],
+        emmo:EMMO_b385b94e_ffff_47a2_8971_856f92dd786e ;
+    skos:prefLabel "ProdFlow"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current product flow [l/h]"@en .
+
+:EMMO_4421f224_0ce5_53c3_ac1f_4139e07488b4 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:KiloWatt ],
+        emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+    skos:prefLabel "MillPower"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill drive: power [kW]"@en .
+
+:EMMO_44c1b1b8_f764_5603_ad62_e04d56c8a079 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ;
+    skos:prefLabel "ScraperSpeed"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive:  speed [rpm]"@en .
+
+:EMMO_5327cc5b_306d_5f09_9721_511d2dc518f1 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:Ampere ],
+        emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+    skos:prefLabel "MillCurrent"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill drive: current [A]"@en .
+
+:EMMO_67cffe11_c963_54ec_8170_0a830d6ae1f9 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:Ampere ],
+        emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+    skos:prefLabel "ScraperCurrent"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive: current [A]"@en .
+
+:EMMO_6d437f40_8ce9_50fd_8696_d4a6cc4b5dc6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:DegreeCelsius ],
+        emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ;
+    skos:prefLabel "MillTempProdInlet"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current prodcut temperature mill inlet [°C]"@en .
+
+:EMMO_6edf6d45_269c_5042_a06c_4d265c7d7c4f a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:DegreeCelsius ],
+        emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ;
+    skos:prefLabel "MillTempSeal"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current temperature mill sealing fluid  [°C]"@en .
+
+:EMMO_74bda600_6253_5060_9f29_ac9c39c7b1f3 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ;
+    skos:prefLabel "MillSpeed"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill dirve: speed [rpm]"@en .
+
+:EMMO_829968eb_be57_56fb_9f64_8caba0a41466 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:MilliBar ],
+        emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
+    skos:prefLabel "MixerPres"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current pressure mixing vessel [mbar]"@en .
+
+:EMMO_99fbe385_b854_57b1_8904_d5c0642bde68 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:CentiPoise ],
+        emmo:EMMO_908da3d5_775e_425e_af96_33914618eb66 ;
+    skos:prefLabel "ViscPromass"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current viscosity from E&H flow meter [cP]"@en .
+
+:EMMO_9f53cb0d_665a_581d_84c7_69c594af3bbb a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
+    skos:prefLabel "PumpPresOut"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current pressure pump outlet [bar]"@en .
+
+:EMMO_a6d6ac06_efd2_5658_9b36_58560027237e a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
+    skos:prefLabel "MillPresInlet"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current pressure mill inlet [bar]"@en .
+
+:EMMO_acc120db_f236_50ae_980c_218e19492de6 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ;
+    skos:prefLabel "MixerSpeed"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mixer drive: speed [rpm]"@en .
+
+:EMMO_ad3f6c70_624c_553a_8720_0f257876a308 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:NewtonMetre ],
+        emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+    skos:prefLabel "MixerTorque"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "MIxer drive: torque [Nm]"@en .
+
+:EMMO_b3aee775_1124_54d8_b4bb_7d8a7c9a2596 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:KiloWatt ],
+        emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+    skos:prefLabel "MixerPower"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mixer drive: power [kW]"@en .
+
+:EMMO_b511388c_5925_525c_be2c_9ae9f14f7904 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:KiloWatt ],
+        emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+    skos:prefLabel "PumpPower"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: power [kW]"@en .
+
+:EMMO_b83dc517_8ccf_5f72_90b1_ad2fba27c900 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:Ampere ],
+        emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+    skos:prefLabel "PumpCurrent"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: current [A]"@en .
+
+:EMMO_bcf3dd18_bb56_5a88_89f7_16b8ccd1a58e a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:NewtonMetre ],
+        emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+    skos:prefLabel "MillTorque"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill drive: torque [Nm]"@en .
+
+:EMMO_c704ed1c_c0c1_5ad6_9d55_f0f79d9c9270 a owl:Class ;
+    rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ;
+    skos:prefLabel "PumpSpeed"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: speed [rpm]"@en .
+
+:EMMO_c76f4b01_d582_5a38_a073_459a12c70e47 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:NewtonMetre ],
+        emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+    skos:prefLabel "ScraperTorque"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive: torque [Nm]"@en .
+
+:EMMO_cf11a358_34a6_5a13_9607_44277acd60b8 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:KiloWatt ],
+        emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+    skos:prefLabel "ScraperPower"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive: power [kW]"@en .
+
+:EMMO_e8b88fe1_ac83_5b3c_a8f7_6951f1e953c6 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:Ampere ],
+        emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+    skos:prefLabel "MixerCurrent"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mixer drive: current [A]"@en .
+
+:EMMO_efae5d51_07d7_5666_a199_769695a83c26 a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+            owl:someValuesFrom emmo:DegreeCelsius ],
+        emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ;
+    skos:prefLabel "MixerTemp"@en ;
+    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current proudct temperature mixing vessel [°C]"@en .
+
