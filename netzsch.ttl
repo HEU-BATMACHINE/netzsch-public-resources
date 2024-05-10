@@ -1,0 +1,396 @@
+@prefix : <https://w3id.org/netzsch/public/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix emmo: <http://emmo.info/emmo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/netzsch/public/ontology> .
+
+<https://w3id.org/netzsch/public/ontology> rdf:type owl:Ontology ;
+                                            owl:versionIRI <https://w3id.org/netzsch/public/ontology/0.1.0-beta/ontology> ;
+                                            owl:imports <https://w3id.org/emmo/1.0.0-beta7/disciplines/prefixedunits> ,
+                                                        <https://w3id.org/emmo/domain/electrochemistry/0.12.1-beta/electrochemistry> ;
+                                            dcterms:contributor "SINTEF"@en ,
+                                                                "SINTEF Industry"@en ;
+                                            dcterms:creator "Sridevi Krishnamurthi, Simon Clark"@en ;
+                                            dcterms:title "Slurry mixing-NFT domain ontology"@en ;
+                                            owl:versionInfo "0.1.0-beta" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
+emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://emmo.info/emmo#EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569
+emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://emmo.info/emmo#Ampere
+emmo:Ampere rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#CentiPoise
+emmo:CentiPoise rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#DegreeCelsius
+emmo:DegreeCelsius rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2
+emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52
+emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
+emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22
+emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_81369540_1b0e_471b_9bae_6801af22800e
+emmo:EMMO_81369540_1b0e_471b_9bae_6801af22800e rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_908da3d5_775e_425e_af96_33914618eb66
+emmo:EMMO_908da3d5_775e_425e_af96_33914618eb66 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_aaf9dd7f_0474_40d0_9606_02def8515249
+emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_b385b94e_ffff_47a2_8971_856f92dd786e
+emmo:EMMO_b385b94e_ffff_47a2_8971_856f92dd786e rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88
+emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#KiloWatt
+emmo:KiloWatt rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#LitrePerHour
+emmo:LitrePerHour rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#MetrePerSecond
+emmo:MetrePerSecond rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#NewtonMetre
+emmo:NewtonMetre rdf:type owl:Class .
+
+
+###  http://emmo.info/emmo#RotationsPerMinute
+emmo:RotationsPerMinute rdf:type owl:Class .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_1bb9043d_f98b_5ce3_9f6b_e02511db3380
+:netzsch_1bb9043d_f98b_5ce3_9f6b_e02511db3380 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_81369540_1b0e_471b_9bae_6801af22800e ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:MetrePerSecond
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill tip speed [m/s]"@en ;
+                                              skos:prefLabel "MillTipSpeed"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_207741e1_a2af_589d_8c6d_db50eeadfc5a
+:netzsch_207741e1_a2af_589d_8c6d_db50eeadfc5a rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:NewtonMetre
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: torque [Nm]"@en ;
+                                              skos:prefLabel "PumpTorque"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_27b84418_f10d_53a6_9a26_35aa5607154f
+:netzsch_27b84418_f10d_53a6_9a26_35aa5607154f rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:DegreeCelsius
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current prodcut temperature mill outlet [°C]"@en ;
+                                              skos:prefLabel "MIllTempProdOut"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_2a4f7b5a_435b_51ee_bfb6_3b1008fa5905
+:netzsch_2a4f7b5a_435b_51ee_bfb6_3b1008fa5905 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_b385b94e_ffff_47a2_8971_856f92dd786e ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:LitrePerHour
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current product flow [l/h]"@en ;
+                                              skos:prefLabel "ProdFlow"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_4421f224_0ce5_53c3_ac1f_4139e07488b4
+:netzsch_4421f224_0ce5_53c3_ac1f_4139e07488b4 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:KiloWatt
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill drive: power [kW]"@en ;
+                                              skos:prefLabel "MillPower"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_44c1b1b8_f764_5603_ad62_e04d56c8a079
+:netzsch_44c1b1b8_f764_5603_ad62_e04d56c8a079 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:RotationsPerMinute
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive:  speed [rpm]"@en ;
+                                              skos:prefLabel "ScraperSpeed"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_5327cc5b_306d_5f09_9721_511d2dc518f1
+:netzsch_5327cc5b_306d_5f09_9721_511d2dc518f1 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:Ampere
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill drive: current [A]"@en ;
+                                              skos:prefLabel "MillCurrent"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_67cffe11_c963_54ec_8170_0a830d6ae1f9
+:netzsch_67cffe11_c963_54ec_8170_0a830d6ae1f9 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:Ampere
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive: current [A]"@en ;
+                                              skos:prefLabel "ScraperCurrent"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_6d437f40_8ce9_50fd_8696_d4a6cc4b5dc6
+:netzsch_6d437f40_8ce9_50fd_8696_d4a6cc4b5dc6 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:DegreeCelsius
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current prodcut temperature mill inlet [°C]"@en ;
+                                              skos:prefLabel "MillTempProdInlet"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_6edf6d45_269c_5042_a06c_4d265c7d7c4f
+:netzsch_6edf6d45_269c_5042_a06c_4d265c7d7c4f rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:DegreeCelsius
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current temperature mill sealing fluid  [°C]"@en ;
+                                              skos:prefLabel "MillTempSeal"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_74bda600_6253_5060_9f29_ac9c39c7b1f3
+:netzsch_74bda600_6253_5060_9f29_ac9c39c7b1f3 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:RotationsPerMinute
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill dirve: speed [rpm]"@en ;
+                                              skos:prefLabel "MillSpeed"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_829968eb_be57_56fb_9f64_8caba0a41466
+:netzsch_829968eb_be57_56fb_9f64_8caba0a41466 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current pressure mixing vessel [mbar]"@en ;
+                                              skos:prefLabel "MixerPres"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_99fbe385_b854_57b1_8904_d5c0642bde68
+:netzsch_99fbe385_b854_57b1_8904_d5c0642bde68 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_908da3d5_775e_425e_af96_33914618eb66 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:CentiPoise
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current viscosity from E&H flow meter [cP]"@en ;
+                                              skos:prefLabel "ViscPromass"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_9f53cb0d_665a_581d_84c7_69c594af3bbb
+:netzsch_9f53cb0d_665a_581d_84c7_69c594af3bbb rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom :emmo:Bar
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current pressure pump outlet [bar]"@en ;
+                                              skos:prefLabel "PumpPresOut"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_a6d6ac06_efd2_5658_9b36_58560027237e
+:netzsch_a6d6ac06_efd2_5658_9b36_58560027237e rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom :emmo:Bar
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current pressure mill inlet [bar]"@en ;
+                                              skos:prefLabel "MillPresInlet"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_acc120db_f236_50ae_980c_218e19492de6
+:netzsch_acc120db_f236_50ae_980c_218e19492de6 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:RotationsPerMinute
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mixer drive: speed [rpm]"@en ;
+                                              skos:prefLabel "MixerSpeed"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_ad3f6c70_624c_553a_8720_0f257876a308
+:netzsch_ad3f6c70_624c_553a_8720_0f257876a308 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:NewtonMetre
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "MIxer drive: torque [Nm]"@en ;
+                                              skos:prefLabel "MixerTorque"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_b3aee775_1124_54d8_b4bb_7d8a7c9a2596
+:netzsch_b3aee775_1124_54d8_b4bb_7d8a7c9a2596 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:KiloWatt
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mixer drive: power [kW]"@en ;
+                                              skos:prefLabel "MixerPower"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_b511388c_5925_525c_be2c_9ae9f14f7904
+:netzsch_b511388c_5925_525c_be2c_9ae9f14f7904 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:KiloWatt
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: power [kW]"@en ;
+                                              skos:prefLabel "PumpPower"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_b83dc517_8ccf_5f72_90b1_ad2fba27c900
+:netzsch_b83dc517_8ccf_5f72_90b1_ad2fba27c900 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:Ampere
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: current [A]"@en ;
+                                              skos:prefLabel "PumpCurrent"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_bcf3dd18_bb56_5a88_89f7_16b8ccd1a58e
+:netzsch_bcf3dd18_bb56_5a88_89f7_16b8ccd1a58e rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:NewtonMetre
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mill drive: torque [Nm]"@en ;
+                                              skos:prefLabel "MillTorque"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_c704ed1c_c0c1_5ad6_9d55_f0f79d9c9270
+:netzsch_c704ed1c_c0c1_5ad6_9d55_f0f79d9c9270 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_3789d3c5_77f4_456e_b7ed_40e670f47e52 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:RotationsPerMinute
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Pump drive: speed [rpm]"@en ;
+                                              skos:prefLabel "PumpSpeed"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_c76f4b01_d582_5a38_a073_459a12c70e47
+:netzsch_c76f4b01_d582_5a38_a073_459a12c70e47 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:NewtonMetre
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive: torque [Nm]"@en ;
+                                              skos:prefLabel "ScraperTorque"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_cf11a358_34a6_5a13_9607_44277acd60b8
+:netzsch_cf11a358_34a6_5a13_9607_44277acd60b8 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:KiloWatt
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Scraper drive: power [kW]"@en ;
+                                              skos:prefLabel "ScraperPower"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_e8b88fe1_ac83_5b3c_a8f7_6951f1e953c6
+:netzsch_e8b88fe1_ac83_5b3c_a8f7_6951f1e953c6 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:Ampere
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Mixer drive: current [A]"@en ;
+                                              skos:prefLabel "MixerCurrent"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#netzsch_efae5d51_07d7_5666_a199_769695a83c26
+:netzsch_efae5d51_07d7_5666_a199_769695a83c26 rdf:type owl:Class ;
+                                              rdfs:subClassOf emmo:EMMO_66bc9029_f473_45ff_bab9_c3509ff37a22 ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty emmo:EMMO_bed1d005_b04e_4a90_94cf_02bc678a8569 ;
+                                                                owl:someValuesFrom emmo:DegreeCelsius
+                                                              ] ;
+                                              emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Current proudct temperature mixing vessel [°C]"@en ;
+                                              skos:prefLabel "MixerTemp"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#emmo:Bar
+:emmo:Bar rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
