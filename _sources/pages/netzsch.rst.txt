@@ -8,12 +8,12 @@ netzsch Terms
 
 .. raw:: html
 
-   <div id="EMMO_27b84418_f10d_53a6_9a26_35aa5607154f"></div>
+   <div id="netzsch_27b84418_f10d_53a6_9a26_35aa5607154f"></div>
 
 MIllTempProdOut
 ---------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_27b84418_f10d_53a6_9a26_35aa5607154f
+* https://w3id.org/netzsch/public/ontology#netzsch_27b84418_f10d_53a6_9a26_35aa5607154f
 
 .. raw:: html
 
@@ -27,12 +27,12 @@ MIllTempProdOut
 
 .. raw:: html
 
-   <div id="EMMO_5327cc5b_306d_5f09_9721_511d2dc518f1"></div>
+   <div id="netzsch_5327cc5b_306d_5f09_9721_511d2dc518f1"></div>
 
 MillCurrent
 -----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_5327cc5b_306d_5f09_9721_511d2dc518f1
+* https://w3id.org/netzsch/public/ontology#netzsch_5327cc5b_306d_5f09_9721_511d2dc518f1
 
 .. raw:: html
 
@@ -46,12 +46,12 @@ MillCurrent
 
 .. raw:: html
 
-   <div id="EMMO_4421f224_0ce5_53c3_ac1f_4139e07488b4"></div>
+   <div id="netzsch_4421f224_0ce5_53c3_ac1f_4139e07488b4"></div>
 
 MillPower
 ---------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_4421f224_0ce5_53c3_ac1f_4139e07488b4
+* https://w3id.org/netzsch/public/ontology#netzsch_4421f224_0ce5_53c3_ac1f_4139e07488b4
 
 .. raw:: html
 
@@ -65,12 +65,12 @@ MillPower
 
 .. raw:: html
 
-   <div id="EMMO_a6d6ac06_efd2_5658_9b36_58560027237e"></div>
+   <div id="netzsch_a6d6ac06_efd2_5658_9b36_58560027237e"></div>
 
 MillPresInlet
 -------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_a6d6ac06_efd2_5658_9b36_58560027237e
+* https://w3id.org/netzsch/public/ontology#netzsch_a6d6ac06_efd2_5658_9b36_58560027237e
 
 .. raw:: html
 
@@ -84,12 +84,12 @@ MillPresInlet
 
 .. raw:: html
 
-   <div id="EMMO_74bda600_6253_5060_9f29_ac9c39c7b1f3"></div>
+   <div id="netzsch_74bda600_6253_5060_9f29_ac9c39c7b1f3"></div>
 
 MillSpeed
 ---------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_74bda600_6253_5060_9f29_ac9c39c7b1f3
+* https://w3id.org/netzsch/public/ontology#netzsch_74bda600_6253_5060_9f29_ac9c39c7b1f3
 
 .. raw:: html
 
@@ -103,12 +103,12 @@ MillSpeed
 
 .. raw:: html
 
-   <div id="EMMO_6d437f40_8ce9_50fd_8696_d4a6cc4b5dc6"></div>
+   <div id="netzsch_6d437f40_8ce9_50fd_8696_d4a6cc4b5dc6"></div>
 
 MillTempProdInlet
 -----------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_6d437f40_8ce9_50fd_8696_d4a6cc4b5dc6
+* https://w3id.org/netzsch/public/ontology#netzsch_6d437f40_8ce9_50fd_8696_d4a6cc4b5dc6
 
 .. raw:: html
 
@@ -122,12 +122,12 @@ MillTempProdInlet
 
 .. raw:: html
 
-   <div id="EMMO_6edf6d45_269c_5042_a06c_4d265c7d7c4f"></div>
+   <div id="netzsch_6edf6d45_269c_5042_a06c_4d265c7d7c4f"></div>
 
 MillTempSeal
 ------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_6edf6d45_269c_5042_a06c_4d265c7d7c4f
+* https://w3id.org/netzsch/public/ontology#netzsch_6edf6d45_269c_5042_a06c_4d265c7d7c4f
 
 .. raw:: html
 
@@ -141,12 +141,12 @@ MillTempSeal
 
 .. raw:: html
 
-   <div id="EMMO_1bb9043d_f98b_5ce3_9f6b_e02511db3380"></div>
+   <div id="netzsch_1bb9043d_f98b_5ce3_9f6b_e02511db3380"></div>
 
 MillTipSpeed
 ------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_1bb9043d_f98b_5ce3_9f6b_e02511db3380
+* https://w3id.org/netzsch/public/ontology#netzsch_1bb9043d_f98b_5ce3_9f6b_e02511db3380
 
 .. raw:: html
 
@@ -160,12 +160,12 @@ MillTipSpeed
 
 .. raw:: html
 
-   <div id="EMMO_bcf3dd18_bb56_5a88_89f7_16b8ccd1a58e"></div>
+   <div id="netzsch_bcf3dd18_bb56_5a88_89f7_16b8ccd1a58e"></div>
 
 MillTorque
 ----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_bcf3dd18_bb56_5a88_89f7_16b8ccd1a58e
+* https://w3id.org/netzsch/public/ontology#netzsch_bcf3dd18_bb56_5a88_89f7_16b8ccd1a58e
 
 .. raw:: html
 
@@ -179,12 +179,12 @@ MillTorque
 
 .. raw:: html
 
-   <div id="EMMO_e8b88fe1_ac83_5b3c_a8f7_6951f1e953c6"></div>
+   <div id="netzsch_e8b88fe1_ac83_5b3c_a8f7_6951f1e953c6"></div>
 
 MixerCurrent
 ------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_e8b88fe1_ac83_5b3c_a8f7_6951f1e953c6
+* https://w3id.org/netzsch/public/ontology#netzsch_e8b88fe1_ac83_5b3c_a8f7_6951f1e953c6
 
 .. raw:: html
 
@@ -198,12 +198,12 @@ MixerCurrent
 
 .. raw:: html
 
-   <div id="EMMO_b3aee775_1124_54d8_b4bb_7d8a7c9a2596"></div>
+   <div id="netzsch_b3aee775_1124_54d8_b4bb_7d8a7c9a2596"></div>
 
 MixerPower
 ----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_b3aee775_1124_54d8_b4bb_7d8a7c9a2596
+* https://w3id.org/netzsch/public/ontology#netzsch_b3aee775_1124_54d8_b4bb_7d8a7c9a2596
 
 .. raw:: html
 
@@ -217,12 +217,12 @@ MixerPower
 
 .. raw:: html
 
-   <div id="EMMO_829968eb_be57_56fb_9f64_8caba0a41466"></div>
+   <div id="netzsch_829968eb_be57_56fb_9f64_8caba0a41466"></div>
 
 MixerPres
 ---------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_829968eb_be57_56fb_9f64_8caba0a41466
+* https://w3id.org/netzsch/public/ontology#netzsch_829968eb_be57_56fb_9f64_8caba0a41466
 
 .. raw:: html
 
@@ -236,12 +236,12 @@ MixerPres
 
 .. raw:: html
 
-   <div id="EMMO_acc120db_f236_50ae_980c_218e19492de6"></div>
+   <div id="netzsch_acc120db_f236_50ae_980c_218e19492de6"></div>
 
 MixerSpeed
 ----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_acc120db_f236_50ae_980c_218e19492de6
+* https://w3id.org/netzsch/public/ontology#netzsch_acc120db_f236_50ae_980c_218e19492de6
 
 .. raw:: html
 
@@ -255,12 +255,12 @@ MixerSpeed
 
 .. raw:: html
 
-   <div id="EMMO_efae5d51_07d7_5666_a199_769695a83c26"></div>
+   <div id="netzsch_efae5d51_07d7_5666_a199_769695a83c26"></div>
 
 MixerTemp
 ---------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_efae5d51_07d7_5666_a199_769695a83c26
+* https://w3id.org/netzsch/public/ontology#netzsch_efae5d51_07d7_5666_a199_769695a83c26
 
 .. raw:: html
 
@@ -274,12 +274,12 @@ MixerTemp
 
 .. raw:: html
 
-   <div id="EMMO_ad3f6c70_624c_553a_8720_0f257876a308"></div>
+   <div id="netzsch_ad3f6c70_624c_553a_8720_0f257876a308"></div>
 
 MixerTorque
 -----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_ad3f6c70_624c_553a_8720_0f257876a308
+* https://w3id.org/netzsch/public/ontology#netzsch_ad3f6c70_624c_553a_8720_0f257876a308
 
 .. raw:: html
 
@@ -293,12 +293,12 @@ MixerTorque
 
 .. raw:: html
 
-   <div id="EMMO_2a4f7b5a_435b_51ee_bfb6_3b1008fa5905"></div>
+   <div id="netzsch_2a4f7b5a_435b_51ee_bfb6_3b1008fa5905"></div>
 
 ProdFlow
 --------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_2a4f7b5a_435b_51ee_bfb6_3b1008fa5905
+* https://w3id.org/netzsch/public/ontology#netzsch_2a4f7b5a_435b_51ee_bfb6_3b1008fa5905
 
 .. raw:: html
 
@@ -312,12 +312,12 @@ ProdFlow
 
 .. raw:: html
 
-   <div id="EMMO_b83dc517_8ccf_5f72_90b1_ad2fba27c900"></div>
+   <div id="netzsch_b83dc517_8ccf_5f72_90b1_ad2fba27c900"></div>
 
 PumpCurrent
 -----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_b83dc517_8ccf_5f72_90b1_ad2fba27c900
+* https://w3id.org/netzsch/public/ontology#netzsch_b83dc517_8ccf_5f72_90b1_ad2fba27c900
 
 .. raw:: html
 
@@ -331,12 +331,12 @@ PumpCurrent
 
 .. raw:: html
 
-   <div id="EMMO_b511388c_5925_525c_be2c_9ae9f14f7904"></div>
+   <div id="netzsch_b511388c_5925_525c_be2c_9ae9f14f7904"></div>
 
 PumpPower
 ---------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_b511388c_5925_525c_be2c_9ae9f14f7904
+* https://w3id.org/netzsch/public/ontology#netzsch_b511388c_5925_525c_be2c_9ae9f14f7904
 
 .. raw:: html
 
@@ -350,12 +350,12 @@ PumpPower
 
 .. raw:: html
 
-   <div id="EMMO_9f53cb0d_665a_581d_84c7_69c594af3bbb"></div>
+   <div id="netzsch_9f53cb0d_665a_581d_84c7_69c594af3bbb"></div>
 
 PumpPresOut
 -----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_9f53cb0d_665a_581d_84c7_69c594af3bbb
+* https://w3id.org/netzsch/public/ontology#netzsch_9f53cb0d_665a_581d_84c7_69c594af3bbb
 
 .. raw:: html
 
@@ -369,12 +369,12 @@ PumpPresOut
 
 .. raw:: html
 
-   <div id="EMMO_c704ed1c_c0c1_5ad6_9d55_f0f79d9c9270"></div>
+   <div id="netzsch_c704ed1c_c0c1_5ad6_9d55_f0f79d9c9270"></div>
 
 PumpSpeed
 ---------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_c704ed1c_c0c1_5ad6_9d55_f0f79d9c9270
+* https://w3id.org/netzsch/public/ontology#netzsch_c704ed1c_c0c1_5ad6_9d55_f0f79d9c9270
 
 .. raw:: html
 
@@ -388,12 +388,12 @@ PumpSpeed
 
 .. raw:: html
 
-   <div id="EMMO_207741e1_a2af_589d_8c6d_db50eeadfc5a"></div>
+   <div id="netzsch_207741e1_a2af_589d_8c6d_db50eeadfc5a"></div>
 
 PumpTorque
 ----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_207741e1_a2af_589d_8c6d_db50eeadfc5a
+* https://w3id.org/netzsch/public/ontology#netzsch_207741e1_a2af_589d_8c6d_db50eeadfc5a
 
 .. raw:: html
 
@@ -407,12 +407,12 @@ PumpTorque
 
 .. raw:: html
 
-   <div id="EMMO_67cffe11_c963_54ec_8170_0a830d6ae1f9"></div>
+   <div id="netzsch_67cffe11_c963_54ec_8170_0a830d6ae1f9"></div>
 
 ScraperCurrent
 --------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_67cffe11_c963_54ec_8170_0a830d6ae1f9
+* https://w3id.org/netzsch/public/ontology#netzsch_67cffe11_c963_54ec_8170_0a830d6ae1f9
 
 .. raw:: html
 
@@ -426,12 +426,12 @@ ScraperCurrent
 
 .. raw:: html
 
-   <div id="EMMO_cf11a358_34a6_5a13_9607_44277acd60b8"></div>
+   <div id="netzsch_cf11a358_34a6_5a13_9607_44277acd60b8"></div>
 
 ScraperPower
 ------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_cf11a358_34a6_5a13_9607_44277acd60b8
+* https://w3id.org/netzsch/public/ontology#netzsch_cf11a358_34a6_5a13_9607_44277acd60b8
 
 .. raw:: html
 
@@ -445,12 +445,12 @@ ScraperPower
 
 .. raw:: html
 
-   <div id="EMMO_44c1b1b8_f764_5603_ad62_e04d56c8a079"></div>
+   <div id="netzsch_44c1b1b8_f764_5603_ad62_e04d56c8a079"></div>
 
 ScraperSpeed
 ------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_44c1b1b8_f764_5603_ad62_e04d56c8a079
+* https://w3id.org/netzsch/public/ontology#netzsch_44c1b1b8_f764_5603_ad62_e04d56c8a079
 
 .. raw:: html
 
@@ -464,12 +464,12 @@ ScraperSpeed
 
 .. raw:: html
 
-   <div id="EMMO_c76f4b01_d582_5a38_a073_459a12c70e47"></div>
+   <div id="netzsch_c76f4b01_d582_5a38_a073_459a12c70e47"></div>
 
 ScraperTorque
 -------------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_c76f4b01_d582_5a38_a073_459a12c70e47
+* https://w3id.org/netzsch/public/ontology#netzsch_c76f4b01_d582_5a38_a073_459a12c70e47
 
 .. raw:: html
 
@@ -483,12 +483,12 @@ ScraperTorque
 
 .. raw:: html
 
-   <div id="EMMO_99fbe385_b854_57b1_8904_d5c0642bde68"></div>
+   <div id="netzsch_99fbe385_b854_57b1_8904_d5c0642bde68"></div>
 
 ViscPromass
 -----------
 
-* https://w3id.org/netzsch/public/ontology#EMMO_99fbe385_b854_57b1_8904_d5c0642bde68
+* https://w3id.org/netzsch/public/ontology#netzsch_99fbe385_b854_57b1_8904_d5c0642bde68
 
 .. raw:: html
 
