@@ -3,7 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix emmo: <https://w3id.org/emmo#> .
-@prefix mixer: <https://w3id.org/netzsch/public/ontology#>.
+@prefix mixer: <https://w3id.org/netzsch/public/ontology#> .
 @prefix equipment: <https://w3id.org/batteryequipment/public/ontology#> .
 @prefix : <http://example.org/ontology/unknown#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
