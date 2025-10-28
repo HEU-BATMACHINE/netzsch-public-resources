@@ -1,527 +1,585 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix emmo: <https://w3id.org/emmo#> .
-@prefix mixer: <https://w3id.org/netzsch/public/ontology#> .
-@prefix equipment: <https://w3id.org/batteryequipment/public/ontology#> .
 @prefix : <http://example.org/ontology/unknown#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix battinfo: <http://w3id.org/battinfo#> .
-@prefix chameo: <https://w3id.org/emmo/domain/characterisation-methodology/chameo#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix emmo: <https://w3id.org/emmo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mixer: <https://w3id.org/netzsch/public/ontology#> .
+@prefix chameo: <https://w3id.org/emmo/domain/characterisation-methodology/chameo#> .
+@prefix battinfo: <http://w3id.org/battinfo#> .
+@prefix equipment: <https://w3id.org/batteryequipment/public/ontology#> .
+@base <http://example.org/ontology/unknown#> .
 
-# Ontology Declaration
-# Declare this as an ontology and import BBO ontology
- <https://w3id.org/netzsch/public/ontology#> rdf:type owl:Ontology ;
-    owl:imports <https://w3id.org/emmo/1.0.0-rc1> ,
-                <https://w3id.org/emmo/domain/characterisation-methodology/1.0.0/chameo-inferred> ;
-    owl:imports <https://w3id.org/emmo/1.0.0-beta7/disciplines/manufacturing> ;
-    #owl:imports <https://w3id.org/emmo/1.0.0-beta7/disciplines/thermodynamics> ;
-    #owl:imports <https://w3id.org/emmo/domain/characterisation-methodology/chameo-inferred> ;
-    #owl:imports < https://raw.githubusercontent.com/emmo-repo/domain-characterisation-methodology/refs/heads/main/chameo.ttl> ;
-    #owl:imports <http://www.w3.org/ns/csvw> ;
-    rdfs:label "Custom ontology for describing mixer for batteries." ;
-    rdfs:comment "An extension of the EMMO ontology defining the equipment and processes for the mixer equipment." .
-#-----------------------------------
-# section to deal with properties
-#-----------------------------------
-#Measurement point defined to represent a row in our csv files and ensure consistency
-equipment:MeasurementPoint rdf:type owl:Class ;
-    rdfs:subClassOf chameo:RawData ;
-    rdfs:comment "Class to define the measurement points collected from the equipment."@en ;
-    rdfs:label "MeasurementPoint"@en ;
-    skos:prefLabel "MeasurementPoint"@en ;
-    rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty equipment:hasDateTimeStampData ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass emmo:EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21] ;
-    rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-        owl:someValuesFrom emmo:EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4] .
+<https://w3id.org/netzsch/public/ontology#> rdf:type owl:Ontology ;
+                                             owl:imports <https://w3id.org/emmo/1.0.0-rc1> ,
+                                                         <https://w3id.org/emmo/1.0.0-beta7/disciplines/manufacturing> ,
+                                                         <https://w3id.org/emmo/domain/characterisation-methodology/1.0.0/chameo-inferred> ;
+                                             rdfs:comment "An extension of the EMMO ontology defining the equipment and processes for the mixer equipment." ,
+                                                          "An extension of the EMMO ontology defining the generic concepts for the description of battery production equipment." ;
+                                             rdfs:label "Custom ontology for describing battery production equipment." ,
+                                                        "Custom ontology for describing mixer for batteries." .
 
-# we need to defined the property hasDateTimeStampData
-equipment:hasDateTimeStampData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;
-   rdfs:range emmo:EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21 ;
-   rdfs:label "hasDateTimeStampData" ;
-   skos:prefLabel "hasDateTimeStampData"@en ;
-   rdfs:comment "Date and time stamp at which the raw data was generated." .
+#################################################################
+#    Object Properties
+#################################################################
 
-#Command point defined to represent a row in our csv files and ensure consistency
-equipment:CommandPoint rdf:type owl:Class ;
-    rdfs:subClassOf chameo:RawData ;
-    rdfs:comment "Class to define the command points collected from the equipment."@en ;
-    rdfs:label "CommandPoint"@en ;
-    skos:prefLabel "CommandPoint"@en ;
-    rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty equipment:hasDateTimeStampData ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass emmo:EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21] ;
-    rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty equipment:hasCommandProperty ;
-        owl:someValuesFrom equipment:CommandProperty] .
-
-#emmo:Command https://w3id.org/emmo#EMMO_51645022_3a21_4fa9_a9ce_a795eebbeca7
-
-equipment:DeviceControlProcess rdf:type owl:Class;
-    rdfs:subClassOf emmo:EMMO_51645022_3a21_4fa9_a9ce_a795eebbeca7 ;
-    rdfs:comment "Class to define the control process for an equipment."@en ;
-    rdfs:label "DeviceControlProcess"@en ;
-    skos:prefLabel "DeviceControlProcess"@en .
-
-equipment:CommandInput rdf:type owl:Class;
-    #emmo:Objective https://w3id.org/emmo#EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978
-    rdfs:subClassOf emmo:EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ;
-    rdfs:comment "Class to define the control command for an equipment."@en ;
-    rdfs:label "CommandInput"@en ;
-    skos:prefLabel "CommandInput"@en .
-
-
-# Define the Equipment class
-equipment:ManufacturingEquipment rdf:type owl:Class ;
-    # EMMO concept for Tool: https://w3id.org/emmo#EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe
-    rdfs:subClassOf emmo:EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe ;
-    rdfs:comment "Refers to larger systems or sets of tools used for a specific purpose, often involving multiple components working together. Equipment generally denotes something more complex or industrial, such as manufacturing machinery, medical systems, or laboratory apparatus. Example: A printing press or a medical imaging machine would be considered equipment, as they are larger, more complex setups used for industrial or professional applications."@en ;
-    rdfs:label "ManufacturingEquipment"@en ;
-    skos:prefLabel "ManufacturingEquipment"@en .
-
-# Define the Device class
-equipment:ManufacturingDevice rdf:type owl:Class ;
-    # EMMO concept for Tool: https://w3id.org/emmo#EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe
-    rdfs:subClassOf emmo:EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe ;
-    rdfs:comment "Refers to a smaller, often more self-contained tool or machine that serves a specific function. Devices are typically simpler than equipment and are often more portable or singular in function. Example: A thermometer, smartphone, or a blood pressure monitor would be considered a device because they are relatively small and perform specific functions."@en ;
-    rdfs:label "ManufacturingDevice"@en ;
-    skos:prefLabel "ManufacturingDevice"@en .
-
-# Define the Component class
-equipment:ManufacturingComponent rdf:type owl:Class ;
-    # EMMO concept for Tool: https://w3id.org/emmo#EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe
-    rdfs:subClassOf emmo:EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe ;
-    rdfs:comment "A component is a smaller part or unit within a larger system or piece of equipment. It typically has a specific role or function within the equipment but doesn't perform the overall task on its own. Examples include a processor in a computer, a gear in an engine, or a valve in a pump. Components are building blocks of equipment and must be integrated into a system to contribute to the equipment's overall function."@en ;
-    rdfs:label "ManufacturingComponent"@en ;
-    skos:prefLabel "ManufacturingComponent"@en .
-
-# Define the CommandProperty class
-equipment:CommandProperty rdf:type owl:Class ;
-    # EMMO concept for ObjectiveProperty: https://w3id.org/emmo#EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec
-    rdfs:subClassOf emmo:EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec ;
-    rdfs:comment "A command to be sent to a device."@en ;
-    rdfs:label "CommandProperty"@en ;
-    skos:prefLabel "CommandProperty"@en .
-
-
-# Define the properties hasDevice
-equipment:hasDevice rdf:type owl:ObjectProperty ;
-   rdfs:domain equipment:ManufacturingEquipment ;
-   rdfs:range equipment:ManufacturingDevice ;
-   rdfs:label "hasDevice" ;
-   rdfs:comment "Specifies the device constituing the equipment." .
-
-# Define the properties hasComponent
-equipment:hasComponent rdf:type owl:ObjectProperty ;
-   rdfs:domain equipment:ManufacturingDevice ;
-   rdfs:range equipment:ManufacturingComponent ;
-   rdfs:label "hasComponent" ;
-   rdfs:comment "Specifies the components constituing the device." .
-
-# Define the properties hasCommand
+###  https://w3id.org/batteryequipment/public/ontology#hasCommandProperty
 equipment:hasCommandProperty rdf:type owl:ObjectProperty ;
-   # emmo hasObjectiveProperty (parent class of hasObjectiveProperty) https://w3id.org/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5
-   rdfs:subPropertyOf emmo:EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
-   rdfs:domain equipment:ManufacturingDevice ;
-   rdfs:range equipment:CommandProperty ;
-   rdfs:label "hasCommandProperty" ;
-   rdfs:comment "Specifies the command set for the device." .
-
-   
-equipment:hasEquipmentModel rdf:type owl:DatatypeProperty ;
-    rdfs:domain equipment:ManufacturingEquipment ;
-    rdfs:range xsd:string ;
-    rdfs:label "has Equipment Model" ;
-    rdfs:comment "Name of the equipment category or product." .
+                             rdfs:subPropertyOf emmo:EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
+                             rdfs:domain equipment:ManufacturingDevice ;
+                             rdfs:range equipment:CommandProperty ;
+                             rdfs:comment "Specifies the command set for the device." ;
+                             rdfs:label "hasCommandProperty" .
 
 
-#-------------------------------------------
-#          Mixer equipment
-#-------------------------------------------
-# Define the Mixe equipment classes
-mixer:MixerEquipment rdf:type owl:Class ;
-    rdfs:subClassOf equipment:ManufacturingEquipment ;
-    rdfs:comment "Mixer equipment for the production of electrode slurry."@en ;
-    rdfs:label "MixerEquipment"@en ;
-    skos:prefLabel "MixerEquipment"@en .
+###  https://w3id.org/batteryequipment/public/ontology#hasComponent
+equipment:hasComponent rdf:type owl:ObjectProperty ;
+                       rdfs:domain equipment:ManufacturingDevice ;
+                       rdfs:range equipment:ManufacturingComponent ;
+                       rdfs:comment "Specifies the components constituing the device." ;
+                       rdfs:label "hasComponent" .
 
-# Define the MixerDevice class
-mixer:MixerDevice rdf:type owl:Class ;
-    rdfs:subClassOf equipment:ManufacturingDevice ;
-    rdfs:comment "Mixer device for the production of electrode slurry, corresponding to the main mixing chamber."@en ;
-    rdfs:label "MixerDevice"@en ;
-    skos:prefLabel "MixerDevice"@en .
 
-# Define the MillingDevice class
-mixer:MillDevice rdf:type owl:Class ;
-    rdfs:subClassOf equipment:ManufacturingDevice ;
-    rdfs:comment "Milling device for the production of electrode slurry, corresponding to the milling chamber."@en ;
-    rdfs:label "MillingDevice"@en ;
-    skos:prefLabel "MillingDevice"@en .
+###  https://w3id.org/batteryequipment/public/ontology#hasDateTimeStampData
+equipment:hasDateTimeStampData rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                               rdfs:domain chameo:RawData ;
+                               rdfs:range emmo:EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21 ;
+                               rdfs:comment "Date and time stamp at which the raw data was generated." ;
+                               rdfs:label "hasDateTimeStampData" ;
+                               skos:prefLabel "hasDateTimeStampData"@en .
 
-# Define the MixerPumpDevice class
-mixer:MixerPumpDevice rdf:type owl:Class ;
-    rdfs:subClassOf equipment:ManufacturingDevice ;
-    rdfs:comment "Mixer Pump device for the production of electrode slurry, corresponding to the pump circulating the slurry."@en ;
-    rdfs:label "MixerPumpDevice"@en ;
-    skos:prefLabel "MixerPumpDevice"@en .
 
-# Define the properties of the CoaterDryerEquipment
-mixer:MixerEquipment rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty equipment:hasDevice ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass mixer:MixerDevice] .
+###  https://w3id.org/batteryequipment/public/ontology#hasDevice
+equipment:hasDevice rdf:type owl:ObjectProperty ;
+                    rdfs:domain equipment:ManufacturingEquipment ;
+                    rdfs:range equipment:ManufacturingDevice ;
+                    rdfs:comment "Specifies the device constituing the equipment." ;
+                    rdfs:label "hasDevice" .
 
-mixer:MixerEquipment rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty equipment:hasDevice ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass mixer:MillingDevice] .
 
-mixer:MixerEquipment rdfs:subClassOf [
-        rdf:type owl:Restriction ;
-        owl:onProperty equipment:hasDevice ;
-        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-        owl:onClass mixer:MixerPumpDevice] .
-
-#-------------------------------------------
-# devices properties with hasMeasuredProperty
-# emmo:Force = https://w3id.org/emmo#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef
-# emmo:ThermodynamicTemperature = https://w3id.org/emmo#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
-# emmo:Pressure = https://w3id.org/emmo#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
-# emmo:Speed = https://w3id.org/emmo#EMMO_81369540_1b0e_471b_9bae_6801af22800e
-# emmo:ElectricCurrent = https://w3id.org/emmo#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88
-# emmo:AngularVelocity = https://w3id.org/emmo#EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd
-# emmo:VolumeFlowRate = https://w3id.org/emmo#EMMO_b385b94e_ffff_47a2_8971_856f92dd786e
-# emmo:DynamicViscosity = https://w3id.org/emmo#EMMO_908da3d5_775e_425e_af96_33914618eb66
-# emmo:Power = https://w3id.org/emmo#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2
-# emmo:Torque = https://w3id.org/emmo#EMMO_aaf9dd7f_0474_40d0_9606_02def8515249
-
-#--- Mixer
-mixer:hasMixingVesselPressureData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
-   rdfs:label "hasMixingVesselPressureData" ;
-   skos:prefLabel "hasMixingVesselPressureData"@en ;
-   rdfs:comment "Pressure in the mixing vessel Data measurement." .
-
-mixer:hasMixingVesselTemperatureData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
-   rdfs:label "hasMixingVesselTemperatureData" ;
-   skos:prefLabel "hasMixingVesselTemperatureData"@en ;
-   rdfs:comment "Temperature in the mixing vessel Data measurement." .
-
-mixer:hasMixerSpeedData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
-   rdfs:label "hasMixerSpeedData" ;
-   skos:prefLabel "hasMixerSpeedData"@en ;
-   rdfs:comment "Rotation speed in the primary mixing device Data measurement." .
-
-mixer:hasMixerPowerData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
-   rdfs:label "hasMixerPowerData" ;
-   skos:prefLabel "hasMixerPowerData"@en ;
-   rdfs:comment "Power in the primary mixing device Data measurement." .
-
-mixer:hasMixerElectricCurrentData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
-   rdfs:label "hasMixerElectricCurrentData" ;
-   skos:prefLabel "hasMixerElectricCurrentData"@en ;
-   rdfs:comment "Electric Current in the primary mixing device Data measurement." .
-
-mixer:hasMixerTorqueData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
-   rdfs:label "hasMixerTorqueData" ;
-   skos:prefLabel "hasMixerTorqueData"@en ;
-   rdfs:comment "Torque in the primary mixing device Data measurement." .
-
-mixer:hasScraperSpeedData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
-   rdfs:label "hasScraperSpeedData" ;
-   skos:prefLabel "hasScraperSpeedData"@en ;
-   rdfs:comment "Rotation speed in the secondary mixing device Data measurement." .
-
-mixer:hasScraperPowerData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
-   rdfs:label "hasScraperPowerData" ;
-   skos:prefLabel "hasScraperPowerData"@en ;
-   rdfs:comment "Power in the secondary mixing device Data measurement." .
-
-mixer:hasScraperElectricCurrentData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
-   rdfs:label "hasScraperElectricCurrentData" ;
-   skos:prefLabel "hasScraperElectricCurrentData"@en ;
-   rdfs:comment "Electric Current in the secondary mixing device Data measurement." .
-
-mixer:hasScraperTorqueData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
-   rdfs:label "hasScraperTorqueData" ;
-   skos:prefLabel "hasScraperTorqueData"@en ;
-   rdfs:comment "Torque in the secondary mixing device Data measurement." .
-
-#--- Pump
-
-mixer:hasPumpOutletPressureData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
-   rdfs:label "hasPumpOutletPressureData" ;
-   skos:prefLabel "hasPumpOutletPressureData"@en ;
-   rdfs:comment "Outlet Pressure in the pump device Data measurement." .
-
-mixer:hasPumpViscosityData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_908da3d5_775e_425e_af96_33914618eb66 ;
-   rdfs:label "hasPumpViscosityData" ;
-   skos:prefLabel "hasPumpViscosityData"@en ;
-   rdfs:comment "Viscosity in the pump device Data measurement from E&H flow meter." .
-
-mixer:hasPumpProductFlowData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_b385b94e_ffff_47a2_8971_856f92dd786e ;
-   rdfs:label "hasPumpProductFlowData" ;
-   skos:prefLabel "hasPumpProductFlowData"@en ;
-   rdfs:comment "Product Flow in the pump device Data measurement." .
-
-mixer:hasPumpSpeedData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
-   rdfs:label "hasPumpSpeedData" ;
-   skos:prefLabel "hasPumpSpeedData"@en ;
-   rdfs:comment "Rotation speed in the pump device Data measurement." .
-
-mixer:hasPumpPowerData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
-   rdfs:label "hasPumpPowerData" ;
-   skos:prefLabel "hasPumpPowerData"@en ;
-   rdfs:comment "Power in the pump device Data measurement." .
-
-mixer:hasPumpElectricCurrentData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
-   rdfs:label "hasPumpElectricCurrentData" ;
-   skos:prefLabel "hasPumpElectricCurrentData"@en ;
-   rdfs:comment "Electric Current in the pump device Data measurement." .
-
-mixer:hasPumpTorqueData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
-   rdfs:label "hasPumpTorqueData" ;
-   skos:prefLabel "hasPumpTorqueData"@en ;
-   rdfs:comment "Torque in the pump device Data measurement." .
-
-#--- Mill
-
-mixer:hasMillInletPressureData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
-   rdfs:label "hasMillInletPressureData" ;
-   skos:prefLabel "hasMillInletPressureData"@en ;
-   rdfs:comment "Inlet Pressure in the milling device Data measurement." .
-
-mixer:hasMillInletTemperatureData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
-   rdfs:label "hasMillInletTemperatureData" ;
-   skos:prefLabel "hasMillInletTemperatureData"@en ;
-   rdfs:comment "Inlet Temperature in the milling device Data measurement." .
-
-mixer:hasMillOutletTemperatureData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
-   rdfs:label "hasMillOutletTemperatureData" ;
-   skos:prefLabel "hasMillOutletTemperatureData"@en ;
-   rdfs:comment "Outlet Temperature in the milling device Data measurement." .
-
-mixer:hasMillSealTemperatureData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
-   rdfs:label "hasMillSealTemperatureData" ;
-   skos:prefLabel "hasMillSealTemperatureData"@en ;
-   rdfs:comment "Sealing Fluid Temperature in the milling device Data measurement." .
-
-mixer:hasMillTipSpeedData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_81369540_1b0e_471b_9bae_6801af22800e ;
-   rdfs:label "hasMillTipSpeedData" ;
-   skos:prefLabel "hasMillTipSpeedData"@en ;
-   rdfs:comment "Tip speed in the pump device Data measurement." .
-
-mixer:hasMillSpeedData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
-   rdfs:label "hasMillSpeedData" ;
-   skos:prefLabel "hasMillSpeedData"@en ;
-   rdfs:comment "Rotation speed in the pump device Data measurement." .
-
-mixer:hasMillPowerData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
-   rdfs:label "hasMillPowerData" ;
-   skos:prefLabel "hasMillPowerData"@en ;
-   rdfs:comment "Power in the pump device Data measurement." .
-
+###  https://w3id.org/netzsch/public/ontology#hasMillElectricCurrentData
 mixer:hasMillElectricCurrentData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
-   rdfs:label "hasMillElectricCurrentData" ;
-   skos:prefLabel "hasMillElectricCurrentData"@en ;
-   rdfs:comment "Electric Current in the pump device Data measurement." .
+                                 rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                 rdfs:domain chameo:RawData ;
+                                 rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+                                 rdfs:comment "Electric Current in the pump device Data measurement." ;
+                                 rdfs:label "hasMillElectricCurrentData" ;
+                                 skos:prefLabel "hasMillElectricCurrentData"@en .
 
+
+###  https://w3id.org/netzsch/public/ontology#hasMillInletPressureData
+mixer:hasMillInletPressureData rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                               rdfs:domain chameo:RawData ;
+                               rdfs:range emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
+                               rdfs:comment "Inlet Pressure in the milling device Data measurement." ;
+                               rdfs:label "hasMillInletPressureData" ;
+                               skos:prefLabel "hasMillInletPressureData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMillInletTemperatureData
+mixer:hasMillInletTemperatureData rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                  rdfs:domain chameo:RawData ;
+                                  rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
+                                  rdfs:comment "Inlet Temperature in the milling device Data measurement." ;
+                                  rdfs:label "hasMillInletTemperatureData" ;
+                                  skos:prefLabel "hasMillInletTemperatureData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMillOutletTemperatureData
+mixer:hasMillOutletTemperatureData rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                   rdfs:domain chameo:RawData ;
+                                   rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
+                                   rdfs:comment "Outlet Temperature in the milling device Data measurement." ;
+                                   rdfs:label "hasMillOutletTemperatureData" ;
+                                   skos:prefLabel "hasMillOutletTemperatureData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMillPowerData
+mixer:hasMillPowerData rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                       rdfs:domain chameo:RawData ;
+                       rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+                       rdfs:comment "Power in the pump device Data measurement." ;
+                       rdfs:label "hasMillPowerData" ;
+                       skos:prefLabel "hasMillPowerData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMillSealTemperatureData
+mixer:hasMillSealTemperatureData rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                 rdfs:domain chameo:RawData ;
+                                 rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
+                                 rdfs:comment "Sealing Fluid Temperature in the milling device Data measurement." ;
+                                 rdfs:label "hasMillSealTemperatureData" ;
+                                 skos:prefLabel "hasMillSealTemperatureData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMillSpeedData
+mixer:hasMillSpeedData rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                       rdfs:domain chameo:RawData ;
+                       rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
+                       rdfs:comment "Rotation speed in the pump device Data measurement." ;
+                       rdfs:label "hasMillSpeedData" ;
+                       skos:prefLabel "hasMillSpeedData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMillTipSpeedData
+mixer:hasMillTipSpeedData rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                          rdfs:domain chameo:RawData ;
+                          rdfs:range emmo:EMMO_81369540_1b0e_471b_9bae_6801af22800e ;
+                          rdfs:comment "Tip speed in the pump device Data measurement." ;
+                          rdfs:label "hasMillTipSpeedData" ;
+                          skos:prefLabel "hasMillTipSpeedData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMillTorqueData
 mixer:hasMillTorqueData rdf:type owl:ObjectProperty ;
-   rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
-   rdfs:domain chameo:RawData ;  
-   rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
-   rdfs:label "hasMillTorqueData" ;
-   skos:prefLabel "hasMillTorqueData"@en ;
-   rdfs:comment "Torque in the pump device Data measurement." .
+                        rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                        rdfs:domain chameo:RawData ;
+                        rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+                        rdfs:comment "Torque in the pump device Data measurement." ;
+                        rdfs:label "hasMillTorqueData" ;
+                        skos:prefLabel "hasMillTorqueData"@en .
 
-#-------------------------------------------
-# create the processes
-mixer:SlurryMillingMixingProcess rdf:type owl:Class ;
-    # EMMO concept for Manufacturing: https://w3id.org/emmo#EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
-    rdfs:subClassOf emmo:EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
-    rdfs:comment "Milling and mixing of slurry for electrodes."@en ;
-    rdfs:label "SlurryMillingMixingProcess"@en ;
-    skos:prefLabel "SlurryMillingMixingProcess"@en .
 
-mixer:SlurryMixingProcess rdf:type owl:Class ;
-    # EMMO concept for Manufacturing: https://w3id.org/emmo#EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b
-    rdfs:subClassOf emmo:EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
-    rdfs:comment "Mixing of slurry for electrodes."@en ;
-    rdfs:label "SlurryMixingProcess"@en ;
-    skos:prefLabel "SlurryMixingProcess"@en .
+###  https://w3id.org/netzsch/public/ontology#hasMixerElectricCurrentData
+mixer:hasMixerElectricCurrentData rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                  rdfs:domain chameo:RawData ;
+                                  rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+                                  rdfs:comment "Electric Current in the primary mixing device Data measurement." ;
+                                  rdfs:label "hasMixerElectricCurrentData" ;
+                                  skos:prefLabel "hasMixerElectricCurrentData"@en .
 
-mixer:SlurryMixingProcess rdfs:subClassOf [
-       rdf:type owl:Restriction ;
-       # EMMO concept for hasTemporaryParticipant https://w3id.org/emmo#EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
-       #owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
-       # EMMO concept hasAgent https://w3id.org/emmo#EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
-       owl:onProperty equipment:hasDevice ;
-       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-       owl:onClass mixer:MixerDevice] .
 
-mixer:SlurryMillingProcess rdf:type owl:Class ;
-    # EMMO concept for MaterialsProcessing: https://w3id.org/emmo#EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a
-    rdfs:subClassOf emmo:EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
-    rdfs:comment "Process of slurry milling."@en ;
-    rdfs:label "SlurryMillingProcess"@en ;
-    skos:prefLabel "SlurryMillingProcess"@en .
+###  https://w3id.org/netzsch/public/ontology#hasMixerPowerData
+mixer:hasMixerPowerData rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                        rdfs:domain chameo:RawData ;
+                        rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+                        rdfs:comment "Power in the primary mixing device Data measurement." ;
+                        rdfs:label "hasMixerPowerData" ;
+                        skos:prefLabel "hasMixerPowerData"@en .
 
-mixer:SlurryMillingProcess rdfs:subClassOf [
-       rdf:type owl:Restriction ;
-       # EMMO concept for hasTemporaryParticipant https://w3id.org/emmo#EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
-       #owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
-       # EMMO concept hasAgent https://w3id.org/emmo#EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
-       owl:onProperty equipment:hasDevice ;
-       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-       owl:onClass mixer:MillDevice] .
 
-mixer:SlurryPumpingProcess rdf:type owl:Class ;
-    # EMMO concept for MaterialsProcessing: https://w3id.org/emmo#EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a
-    rdfs:subClassOf emmo:EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
-    rdfs:comment "Process of slurry pumping."@en ;
-    rdfs:label "SlurryPumpingProcess"@en ;
-    skos:prefLabel "SlurryPumpingProcess"@en .
+###  https://w3id.org/netzsch/public/ontology#hasMixerSpeedData
+mixer:hasMixerSpeedData rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                        rdfs:domain chameo:RawData ;
+                        rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
+                        rdfs:comment "Rotation speed in the primary mixing device Data measurement." ;
+                        rdfs:label "hasMixerSpeedData" ;
+                        skos:prefLabel "hasMixerSpeedData"@en .
 
-mixer:SlurryPumpingProcess rdfs:subClassOf [
-       rdf:type owl:Restriction ;
-       # EMMO concept for hasTemporaryParticipant https://w3id.org/emmo#EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77
-       #owl:onProperty emmo:EMMO_35c29eb6_f57e_48d8_85af_854f9e926e77 ;
-       # EMMO concept hasAgent https://w3id.org/emmo#EMMO_cd24eb82_a11c_4a31_96ea_32f870c5580a
-       owl:onProperty equipment:hasDevice ;
-       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-       owl:onClass mixer:PumpDevice] .
 
-#-------------------------------------------
-# Technical Data Properties
+###  https://w3id.org/netzsch/public/ontology#hasMixerTorqueData
+mixer:hasMixerTorqueData rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                         rdfs:domain chameo:RawData ;
+                         rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+                         rdfs:comment "Torque in the primary mixing device Data measurement." ;
+                         rdfs:label "hasMixerTorqueData" ;
+                         skos:prefLabel "hasMixerTorqueData"@en .
 
-mixer:hasMixerTotalCapacity rdf:type owl:DatatypeProperty ;
-    rdfs:domain mixer:MixerEquipment ;
-    rdfs:range xsd:float ;
-    rdfs:label "has Mixer Total Capacity" ;
-    rdfs:comment "Total capacity of the mixer." .
 
+###  https://w3id.org/netzsch/public/ontology#hasMixingVesselPressureData
+mixer:hasMixingVesselPressureData rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                  rdfs:domain chameo:RawData ;
+                                  rdfs:range emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
+                                  rdfs:comment "Pressure in the mixing vessel Data measurement." ;
+                                  rdfs:label "hasMixingVesselPressureData" ;
+                                  skos:prefLabel "hasMixingVesselPressureData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMixingVesselTemperatureData
+mixer:hasMixingVesselTemperatureData rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                     rdfs:domain chameo:RawData ;
+                                     rdfs:range emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f ;
+                                     rdfs:comment "Temperature in the mixing vessel Data measurement." ;
+                                     rdfs:label "hasMixingVesselTemperatureData" ;
+                                     skos:prefLabel "hasMixingVesselTemperatureData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasPumpElectricCurrentData
+mixer:hasPumpElectricCurrentData rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                 rdfs:domain chameo:RawData ;
+                                 rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+                                 rdfs:comment "Electric Current in the pump device Data measurement." ;
+                                 rdfs:label "hasPumpElectricCurrentData" ;
+                                 skos:prefLabel "hasPumpElectricCurrentData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasPumpOutletPressureData
+mixer:hasPumpOutletPressureData rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                rdfs:domain chameo:RawData ;
+                                rdfs:range emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989 ;
+                                rdfs:comment "Outlet Pressure in the pump device Data measurement." ;
+                                rdfs:label "hasPumpOutletPressureData" ;
+                                skos:prefLabel "hasPumpOutletPressureData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasPumpPowerData
+mixer:hasPumpPowerData rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                       rdfs:domain chameo:RawData ;
+                       rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+                       rdfs:comment "Power in the pump device Data measurement." ;
+                       rdfs:label "hasPumpPowerData" ;
+                       skos:prefLabel "hasPumpPowerData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasPumpProductFlowData
+mixer:hasPumpProductFlowData rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                             rdfs:domain chameo:RawData ;
+                             rdfs:range emmo:EMMO_b385b94e_ffff_47a2_8971_856f92dd786e ;
+                             rdfs:comment "Product Flow in the pump device Data measurement." ;
+                             rdfs:label "hasPumpProductFlowData" ;
+                             skos:prefLabel "hasPumpProductFlowData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasPumpSpeedData
+mixer:hasPumpSpeedData rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                       rdfs:domain chameo:RawData ;
+                       rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
+                       rdfs:comment "Rotation speed in the pump device Data measurement." ;
+                       rdfs:label "hasPumpSpeedData" ;
+                       skos:prefLabel "hasPumpSpeedData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasPumpTorqueData
+mixer:hasPumpTorqueData rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                        rdfs:domain chameo:RawData ;
+                        rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+                        rdfs:comment "Torque in the pump device Data measurement." ;
+                        rdfs:label "hasPumpTorqueData" ;
+                        skos:prefLabel "hasPumpTorqueData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasPumpViscosityData
+mixer:hasPumpViscosityData rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                           rdfs:domain chameo:RawData ;
+                           rdfs:range emmo:EMMO_908da3d5_775e_425e_af96_33914618eb66 ;
+                           rdfs:comment "Viscosity in the pump device Data measurement from E&H flow meter." ;
+                           rdfs:label "hasPumpViscosityData" ;
+                           skos:prefLabel "hasPumpViscosityData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasScraperElectricCurrentData
+mixer:hasScraperElectricCurrentData rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                    rdfs:domain chameo:RawData ;
+                                    rdfs:range emmo:EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88 ;
+                                    rdfs:comment "Electric Current in the secondary mixing device Data measurement." ;
+                                    rdfs:label "hasScraperElectricCurrentData" ;
+                                    skos:prefLabel "hasScraperElectricCurrentData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasScraperPowerData
+mixer:hasScraperPowerData rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                          rdfs:domain chameo:RawData ;
+                          rdfs:range emmo:EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2 ;
+                          rdfs:comment "Power in the secondary mixing device Data measurement." ;
+                          rdfs:label "hasScraperPowerData" ;
+                          skos:prefLabel "hasScraperPowerData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasScraperSpeedData
+mixer:hasScraperSpeedData rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                          rdfs:domain chameo:RawData ;
+                          rdfs:range emmo:EMMO_bd325ef5_4127_420c_83d3_207b3e2184fd ;
+                          rdfs:comment "Rotation speed in the secondary mixing device Data measurement." ;
+                          rdfs:label "hasScraperSpeedData" ;
+                          skos:prefLabel "hasScraperSpeedData"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasScraperTorqueData
+mixer:hasScraperTorqueData rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                           rdfs:domain chameo:RawData ;
+                           rdfs:range emmo:EMMO_aaf9dd7f_0474_40d0_9606_02def8515249 ;
+                           rdfs:comment "Torque in the secondary mixing device Data measurement." ;
+                           rdfs:label "hasScraperTorqueData" ;
+                           skos:prefLabel "hasScraperTorqueData"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/batteryequipment/public/ontology#hasEquipmentModel
+equipment:hasEquipmentModel rdf:type owl:DatatypeProperty ;
+                            rdfs:domain equipment:ManufacturingEquipment ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Name of the equipment category or product." ;
+                            rdfs:label "has Equipment Model" .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMixerEffectiveVolume
 mixer:hasMixerEffectiveVolume rdf:type owl:DatatypeProperty ;
-    rdfs:domain mixer:MixerEquipment ;
-    rdfs:range xsd:float ;
-    rdfs:label "has Mixer Effective Volume" ;
-    rdfs:comment "Effective volume of the mixer." .
+                              rdfs:domain mixer:MixerEquipment ;
+                              rdfs:range xsd:float ;
+                              rdfs:comment "Effective volume of the mixer." ;
+                              rdfs:label "has Mixer Effective Volume" .
 
-mixer:hasMixerMachineDimensionHeight rdf:type owl:DatatypeProperty ;
-    rdfs:domain mixer:MixerEquipment ;
-    rdfs:range xsd:float ;
-    rdfs:label "has Mixer Machine Height" ;
-    rdfs:comment "Height of the mixer." .
 
-mixer:hasMixerMachineDimensionWidth rdf:type owl:DatatypeProperty ;
-    rdfs:domain mixer:MixerEquipment ;
-    rdfs:range xsd:float ;
-    rdfs:label "has Mixer Machine Width" ;
-    rdfs:comment "Width of the mixer." .
-
+###  https://w3id.org/netzsch/public/ontology#hasMixerMachineDimensionDepth
 mixer:hasMixerMachineDimensionDepth rdf:type owl:DatatypeProperty ;
-    rdfs:domain mixer:MixerEquipment ;
-    rdfs:range xsd:float ;
-    rdfs:label "has Mixer Machine Depth" ;
-    rdfs:comment "Depth of the mixer." .
+                                    rdfs:domain mixer:MixerEquipment ;
+                                    rdfs:range xsd:float ;
+                                    rdfs:comment "Depth of the mixer." ;
+                                    rdfs:label "has Mixer Machine Depth" .
 
+
+###  https://w3id.org/netzsch/public/ontology#hasMixerMachineDimensionHeight
+mixer:hasMixerMachineDimensionHeight rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain mixer:MixerEquipment ;
+                                     rdfs:range xsd:float ;
+                                     rdfs:comment "Height of the mixer." ;
+                                     rdfs:label "has Mixer Machine Height" .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMixerMachineDimensionSpaceAbove
 mixer:hasMixerMachineDimensionSpaceAbove rdf:type owl:DatatypeProperty ;
-    rdfs:domain mixer:MixerEquipment ;
-    rdfs:range xsd:float ;
-    rdfs:label "has Mixer Machine Space Above" ;
-    rdfs:comment "Space required above the mixer." .
+                                         rdfs:domain mixer:MixerEquipment ;
+                                         rdfs:range xsd:float ;
+                                         rdfs:comment "Space required above the mixer." ;
+                                         rdfs:label "has Mixer Machine Space Above" .
 
+
+###  https://w3id.org/netzsch/public/ontology#hasMixerMachineDimensionWidth
+mixer:hasMixerMachineDimensionWidth rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain mixer:MixerEquipment ;
+                                    rdfs:range xsd:float ;
+                                    rdfs:comment "Width of the mixer." ;
+                                    rdfs:label "has Mixer Machine Width" .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMixerMachineTankDiameter
 mixer:hasMixerMachineTankDiameter rdf:type owl:DatatypeProperty ;
-    rdfs:domain mixer:MixerEquipment ;
-    rdfs:range xsd:float ;
-    rdfs:label "has Mixer Tank Diameter" ;
-    rdfs:comment "Tank Diameter of the mixer." .
+                                  rdfs:domain mixer:MixerEquipment ;
+                                  rdfs:range xsd:float ;
+                                  rdfs:comment "Tank Diameter of the mixer." ;
+                                  rdfs:label "has Mixer Tank Diameter" .
+
+
+###  https://w3id.org/netzsch/public/ontology#hasMixerTotalCapacity
+mixer:hasMixerTotalCapacity rdf:type owl:DatatypeProperty ;
+                            rdfs:domain mixer:MixerEquipment ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment "Total capacity of the mixer." ;
+                            rdfs:label "has Mixer Total Capacity" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/batteryequipment/public/ontology#CommandInput
+equipment:CommandInput rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:EMMO_2a888cdf_ec4a_4ec5_af1c_0343372fc978 ;
+                       rdfs:comment "Class to define the control command for an equipment."@en ;
+                       rdfs:label "CommandInput"@en ;
+                       skos:prefLabel "CommandInput"@en .
+
+
+###  https://w3id.org/batteryequipment/public/ontology#CommandPoint
+equipment:CommandPoint rdf:type owl:Class ;
+                       rdfs:subClassOf chameo:RawData ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty equipment:hasCommandProperty ;
+                                         owl:someValuesFrom equipment:CommandProperty
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty equipment:hasDateTimeStampData ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass emmo:EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21
+                                       ] ;
+                       rdfs:comment "Class to define the command points collected from the equipment."@en ;
+                       rdfs:label "CommandPoint"@en ;
+                       skos:prefLabel "CommandPoint"@en .
+
+
+###  https://w3id.org/batteryequipment/public/ontology#CommandProperty
+equipment:CommandProperty rdf:type owl:Class ;
+                          rdfs:subClassOf emmo:EMMO_dd4a7f3e_ef56_466c_ac1a_d2716b5f87ec ;
+                          rdfs:comment "A command to be sent to a device."@en ;
+                          rdfs:label "CommandProperty"@en ;
+                          skos:prefLabel "CommandProperty"@en .
+
+
+###  https://w3id.org/batteryequipment/public/ontology#DeviceControlProcess
+equipment:DeviceControlProcess rdf:type owl:Class ;
+                               rdfs:subClassOf emmo:EMMO_51645022_3a21_4fa9_a9ce_a795eebbeca7 ;
+                               rdfs:comment "Class to define the control process for an equipment."@en ;
+                               rdfs:label "DeviceControlProcess"@en ;
+                               skos:prefLabel "DeviceControlProcess"@en .
+
+
+###  https://w3id.org/batteryequipment/public/ontology#ManufacturingComponent
+equipment:ManufacturingComponent rdf:type owl:Class ;
+                                 rdfs:subClassOf emmo:EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe ;
+                                 rdfs:comment "A component is a smaller part or unit within a larger system or piece of equipment. It typically has a specific role or function within the equipment but doesn't perform the overall task on its own. Examples include a processor in a computer, a gear in an engine, or a valve in a pump. Components are building blocks of equipment and must be integrated into a system to contribute to the equipment's overall function."@en ;
+                                 rdfs:label "ManufacturingComponent"@en ;
+                                 skos:prefLabel "ManufacturingComponent"@en .
+
+
+###  https://w3id.org/batteryequipment/public/ontology#ManufacturingDevice
+equipment:ManufacturingDevice rdf:type owl:Class ;
+                              rdfs:subClassOf emmo:EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe ;
+                              rdfs:comment "Refers to a smaller, often more self-contained tool or machine that serves a specific function. Devices are typically simpler than equipment and are often more portable or singular in function. Example: A thermometer, smartphone, or a blood pressure monitor would be considered a device because they are relatively small and perform specific functions."@en ;
+                              rdfs:label "ManufacturingDevice"@en ;
+                              skos:prefLabel "ManufacturingDevice"@en .
+
+
+###  https://w3id.org/batteryequipment/public/ontology#ManufacturingEquipment
+equipment:ManufacturingEquipment rdf:type owl:Class ;
+                                 rdfs:subClassOf emmo:EMMO_5c68497d_2544_4cd4_897b_1ea783c9f6fe ;
+                                 rdfs:comment "Refers to larger systems or sets of tools used for a specific purpose, often involving multiple components working together. Equipment generally denotes something more complex or industrial, such as manufacturing machinery, medical systems, or laboratory apparatus. Example: A printing press or a medical imaging machine would be considered equipment, as they are larger, more complex setups used for industrial or professional applications."@en ;
+                                 rdfs:label "ManufacturingEquipment"@en ;
+                                 skos:prefLabel "ManufacturingEquipment"@en .
+
+
+###  https://w3id.org/batteryequipment/public/ontology#MeasurementPoint
+equipment:MeasurementPoint rdf:type owl:Class ;
+                           rdfs:subClassOf chameo:RawData ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                             owl:someValuesFrom emmo:EMMO_873b0ab3_88e6_4054_b901_5531e01f14a4
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty equipment:hasDateTimeStampData ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass emmo:EMMO_10bbe9e9_46b6_4b5d_8b51_ed759fc21f21
+                                           ] ;
+                           rdfs:comment "Class to define the measurement points collected from the equipment."@en ;
+                           rdfs:label "MeasurementPoint"@en ;
+                           skos:prefLabel "MeasurementPoint"@en .
+
+
+###  https://w3id.org/emmo/domain/characterisation-methodology/chameo#RawData
+chameo:RawData rdf:type owl:Class .
+
+
+###  https://w3id.org/netzsch/public/ontology#MillDevice
+mixer:MillDevice rdf:type owl:Class ;
+                 rdfs:subClassOf equipment:ManufacturingDevice ;
+                 rdfs:comment "Milling device for the production of electrode slurry, corresponding to the milling chamber."@en ;
+                 rdfs:label "MillingDevice"@en ;
+                 skos:prefLabel "MillingDevice"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#MillingDevice
+mixer:MillingDevice rdf:type owl:Class .
+
+
+###  https://w3id.org/netzsch/public/ontology#MixerDevice
+mixer:MixerDevice rdf:type owl:Class ;
+                  rdfs:subClassOf equipment:ManufacturingDevice ;
+                  rdfs:comment "Mixer device for the production of electrode slurry, corresponding to the main mixing chamber."@en ;
+                  rdfs:label "MixerDevice"@en ;
+                  skos:prefLabel "MixerDevice"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#MixerEquipment
+mixer:MixerEquipment rdf:type owl:Class ;
+                     rdfs:subClassOf equipment:ManufacturingEquipment ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty equipment:hasDevice ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass mixer:MillingDevice
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty equipment:hasDevice ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass mixer:MixerDevice
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty equipment:hasDevice ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass mixer:MixerPumpDevice
+                                     ] ;
+                     rdfs:comment "Mixer equipment for the production of electrode slurry."@en ;
+                     rdfs:label "MixerEquipment"@en ;
+                     skos:prefLabel "MixerEquipment"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#MixerPumpDevice
+mixer:MixerPumpDevice rdf:type owl:Class ;
+                      rdfs:subClassOf equipment:ManufacturingDevice ;
+                      rdfs:comment "Mixer Pump device for the production of electrode slurry, corresponding to the pump circulating the slurry."@en ;
+                      rdfs:label "MixerPumpDevice"@en ;
+                      skos:prefLabel "MixerPumpDevice"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#PumpDevice
+mixer:PumpDevice rdf:type owl:Class .
+
+
+###  https://w3id.org/netzsch/public/ontology#SlurryMillingMixingProcess
+mixer:SlurryMillingMixingProcess rdf:type owl:Class ;
+                                 rdfs:subClassOf emmo:EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ;
+                                 rdfs:comment "Milling and mixing of slurry for electrodes."@en ;
+                                 rdfs:label "SlurryMillingMixingProcess"@en ;
+                                 skos:prefLabel "SlurryMillingMixingProcess"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#SlurryMillingProcess
+mixer:SlurryMillingProcess rdf:type owl:Class ;
+                           rdfs:subClassOf emmo:EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty equipment:hasDevice ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass mixer:MillDevice
+                                           ] ;
+                           rdfs:comment "Process of slurry milling."@en ;
+                           rdfs:label "SlurryMillingProcess"@en ;
+                           skos:prefLabel "SlurryMillingProcess"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#SlurryMixingProcess
+mixer:SlurryMixingProcess rdf:type owl:Class ;
+                          rdfs:subClassOf emmo:EMMO_a4d66059_5dd3_4b90_b4cb_10960559441b ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty equipment:hasDevice ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass mixer:MixerDevice
+                                          ] ;
+                          rdfs:comment "Mixing of slurry for electrodes."@en ;
+                          rdfs:label "SlurryMixingProcess"@en ;
+                          skos:prefLabel "SlurryMixingProcess"@en .
+
+
+###  https://w3id.org/netzsch/public/ontology#SlurryPumpingProcess
+mixer:SlurryPumpingProcess rdf:type owl:Class ;
+                           rdfs:subClassOf emmo:EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty equipment:hasDevice ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass mixer:PumpDevice
+                                           ] ;
+                           rdfs:comment "Process of slurry pumping."@en ;
+                           rdfs:label "SlurryPumpingProcess"@en ;
+                           skos:prefLabel "SlurryPumpingProcess"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
