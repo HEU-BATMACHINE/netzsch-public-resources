@@ -80,7 +80,10 @@ jobs:
         git add context/context.json
         # Check for any changes to commit
         git diff --staged --quiet || git commit -m "Update context.json file"
-
+        
+    - name: pull changes
+      run: git pull origin HEAD:main
+      
     - name: Push changes
       run: git push origin HEAD:main
 
