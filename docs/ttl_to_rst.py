@@ -135,12 +135,12 @@ def rendering_workflow():
 
     # PAGES
     ttl_modules = [
-        {"section title": "MATHIS Terms",
-         "path": "./mathis.ttl"}
+        {"section title": "netzsch Terms",
+         "path": "./netzsch.ttl"}
     ]
 
     # GENERATE PAGES
-    rst_filename = "mathis.rst"
+    rst_filename = "netzsch.rst"
 
     rst = render_rst_top()
 
