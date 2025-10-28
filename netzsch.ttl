@@ -24,20 +24,6 @@
     #owl:imports <http://www.w3.org/ns/csvw> ;
     rdfs:label "Custom ontology for describing mixer for batteries." ;
     rdfs:comment "An extension of the EMMO ontology defining the equipment and processes for the mixer equipment." .
-
-<http://example.org/ontology/mixer#> rdf:type owl:Ontology ;
-    owl:imports <https://w3id.org/emmo/1.0.0-rc1> ,
-                <https://w3id.org/emmo/domain/characterisation-methodology/1.0.0/chameo-inferred> ;
-    owl:imports <https://w3id.org/emmo/1.0.0-beta7/disciplines/manufacturing> ;
-    rdfs:label "Custom ontology for describing mixer for batteries." ;
-    rdfs:comment "An extension of the EMMO ontology defining the equipment and processes for the mixer equipment." .
-
-<http://example.org/ontology/equipment#> rdf:type owl:Ontology ;
-    owl:imports <https://w3id.org/emmo/1.0.0-rc1> ,
-                <https://w3id.org/emmo/domain/characterisation-methodology/1.0.0/chameo-inferred> ;
-    owl:imports <https://w3id.org/emmo/1.0.0-beta7/disciplines/manufacturing> ;
-    rdfs:label "Custom ontology for describing battery production equipment." ;
-    rdfs:comment "An extension of the EMMO ontology defining the generic concepts for the description of battery production equipment." .
 #-----------------------------------
 # section to deal with properties
 #-----------------------------------
