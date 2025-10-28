@@ -33,7 +33,7 @@ jobs:
         pip install Markdown==3.4.3 rdflib==6.3.2  # Add any other dependencies if needed
         
     - name: Render documentation from ttl
-      run: python docs/scripts/ttl_to_rst.py
+      run: python docs/ttl_to_rst.py
 
     - name: Build HTML
       uses: ammaraskar/sphinx-action@master
@@ -42,7 +42,7 @@ jobs:
         pre-build-command: "apt-get update -y; apt-get install -y pandoc"
         
     - name: Create context file from ttl
-      run: python docs/scripts/ttl_to_context.py
+      run: python docs/ttl_to_context.py
 
     - name: Check if HTML context directory exists
       run: |
@@ -80,10 +80,10 @@ jobs:
         git add context/context.json
         # Check for any changes to commit
         git diff --staged --quiet || git commit -m "Update context.json file"
-        
+
     - name: pull changes
       run: git pull origin HEAD:main
-      
+
     - name: Push changes
       run: git push origin HEAD:main
 
@@ -109,8 +109,8 @@ jobs:
 
     - name: Copy TTL files to HTML directory
       run: |
-        sudo cp "netzsch.ttl" "docs/_build/html/netzsch.ttl"
-        sudo cp "netzsch-inferred.ttl" "docs/_build/html/netzsch-inferred.ttl"
+        sudo cp "netzsch.ttl" "docs/_build/html/mathis.ttl"
+        sudo cp "netzsch-inferred.ttl" "docs/_build/html/mathis-inferred.ttl"
         
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
